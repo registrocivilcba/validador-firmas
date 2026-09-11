@@ -129,7 +129,7 @@ class App:
         # Si tkinterdnd2 está disponible, usamos soporte para
         # arrastrar y soltar archivos.
         if TkinterDnD is not None:
-            self.root = TkinterDnD.Tk()
+           self.root = TkinterDnD.Tk() if DND_FILES else tk.Tk()
         else:
             self.root = tk.Tk()
 
