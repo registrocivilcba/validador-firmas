@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validador de Firmas Digitales</title>
+  <script type="module" src="https://unpkg.com/@attestto/verify"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin:0; min-height:100vh; font-family:"Segoe UI",Arial,sans-serif; background:#f4f7fb; color:#1f2937; }
+    .top { background:#fff; border-bottom:1px solid #e5e7eb; padding:22px 24px; }
+    .wrap { width:min(1000px,calc(100% - 32px)); margin:0 auto; }
+    h1 { margin:0; font-size:28px; color:#17365d; }
+    .subtitle { margin:6px 0 0; color:#64748b; font-size:15px; }
+    .card { background:#fff; margin:28px auto; padding:28px; border-radius:14px; box-shadow:0 5px 20px rgba(15,23,42,.07); }
+    .privacy { background:#eef8f1; border:1px solid #ccebd5; color:#245b35; border-radius:10px; padding:13px 15px; margin-bottom:22px; font-size:14px; }
+    .instructions { margin:0 0 18px; color:#475569; }
+    attestto-verify { display:block; width:100%; }
+    footer { text-align:center; color:#94a3b8; font-size:12px; padding:0 0 28px; }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <h1>Validador de Firmas Digitales</h1>
+      <p class="subtitle">Verificación técnica de firmas digitales en documentos PDF</p>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="card">
+      <div class="privacy">
+        🔒 <strong>Privacidad:</strong> el documento se procesa en el navegador.
+        Esta página no está diseñada para subir ni almacenar tus PDF en un servidor.
+      </div>
+      <p class="instructions">
+        Seleccioná un PDF firmado digitalmente o arrastralo al área de validación.
+        El sistema mostrará la información disponible sobre la firma, el certificado
+        y la integridad del documento.
+      </p>
+      <attestto-verify></attestto-verify>
+    </section>
+    <footer>
+      Herramienta de validación técnica. El resultado debe interpretarse según las
+      políticas y autoridades certificantes aplicables al organismo.
+    </footer>
+  </main>
+</body>
+</html>
