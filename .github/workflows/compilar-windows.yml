@@ -11,19 +11,28 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Descargar código
+      - name: Descargar codigo
         uses: actions/checkout@v4
 
       - name: Instalar Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
-      - name: Instalar dependencias
-        run: python -m pip install -r requisitos.txt
+      - name: Actualizar pip
+        run: python -m pip install --upgrade pip
+
+      - name: Instalar pyHanko
+        run: python -m pip install "pyHanko>=0.30.0"
+
+      - name: Instalar TkinterDnD2
+        run: python -m pip install "tkinterdnd2>=0.4.3"
+
+      - name: Instalar PyInstaller
+        run: python -m pip install "pyinstaller>=6.10.0"
 
       - name: Compilar EXE
-        run: pyinstaller --noconfirm --clean --onefile --windowed --name ValidadorFirmas validador_firmas.py
+        run: python -m PyInstaller --noconfirm --clean --onefile --windowed --name ValidadorFirmas validador_firmas.py
 
       - name: Guardar EXE
         uses: actions/upload-artifact@v4
