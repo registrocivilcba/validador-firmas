@@ -2,9 +2,6 @@ name: Compilar ValidadorFirmas
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - principal
 
 jobs:
   build:
@@ -22,7 +19,7 @@ jobs:
       - name: Actualizar pip
         run: python -m pip install --upgrade pip
 
-      - name: Instalar pyHanko
+      - name: Instalar PyHanko
         run: python -m pip install "pyHanko>=0.30.0"
 
       - name: Instalar TkinterDnD2
